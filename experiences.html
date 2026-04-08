@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiences — Magic Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    background: var(--teal);
+    padding: 80px 5vw 60px;
+    text-align: center;
+  }
+  .page-hero h1 { color: white; margin-bottom: 16px; }
+  .page-hero .section-tag { color: #9FE1CB; }
+  .page-hero p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  .exp-category { margin-bottom: 72px; }
+
+  .exp-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--indigo);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--saffron);
+    display: inline-block;
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .exp-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.25s;
+  }
+
+  .exp-card:hover { transform: translateY(-4px); }
+
+  .exp-card-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+  }
+
+  .exp-img-1 { background: var(--saffron-pale); }
+  .exp-img-2 { background: var(--indigo-light); }
+  .exp-img-3 { background: var(--teal-light); }
+  .exp-img-4 { background: var(--gold-light); }
+  .exp-img-5 { background: #FBEAF0; }
+  .exp-img-6 { background: #E6F1FB; }
+
+  .exp-card-body { padding: 20px 22px 24px; }
+
+  .exp-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .tag-live { background: var(--saffron-pale); color: var(--saffron); }
+  .tag-tour { background: var(--teal-light); color: var(--teal); }
+  .tag-online { background: var(--indigo-light); color: var(--indigo-mid); }
+
+  .exp-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--indigo);
+    margin-bottom: 8px;
+  }
+
+  .exp-card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .exp-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .exp-price { font-size: 15px; font-weight: 500; color: var(--charcoal); }
+  .exp-duration { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .book-btn {
+    background: var(--saffron);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .book-btn:hover { background: var(--indigo); }
+
+  .tourism-banner {
+    background: var(--indigo);
+    border-radius: 20px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .tourism-banner h2 { color: white; margin-bottom: 12px; }
+  .tourism-banner p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+
+  .tourism-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .tourism-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .tourism-features li::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--saffron-light);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .exp-grid { grid-template-columns: 1fr; }
+    .tourism-banner { grid-template-columns: 1fr; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Magic<span>Shop</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="artisans.html">Artisans</a></li>
+    <li><a href="experiences.html" class="active">Experiences</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-tag">More than a shop</div>
+  <h1>Cultural <em>Experiences</em></h1>
+  <p>Come witness, learn, and feel the pulse of India's living craft traditions — in person and online.</p>
+</div>
+
+<section>
+
+  <div class="exp-category">
+    <div class="section-tag">In person</div>
+    <div class="exp-category-title">Live demonstrations</div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-1">🪡</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-live">Live demo</div>
+          <div class="exp-card-title">Watch ikat being woven</div>
+          <div class="exp-card-desc">Sit with Rajamma as she works on a double ikat saree. Watch how each pre-dyed thread is placed with surgical precision on the loom.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹500 per person</div>
+              <div class="exp-duration">2 hours · Pochampally</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-2">🏺</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-live">Live demo</div>
+          <div class="exp-card-title">Bidriware inlay session</div>
+          <div class="exp-card-desc">Watch Mohammed chisel delicate patterns into metal and inlay silver thread by hand. Try a small piece yourself under his guidance.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹750 per person</div>
+              <div class="exp-duration">3 hours · Bidar</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-3">🎨</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-live">Live demo</div>
+          <div class="exp-card-title">Paint a Nirmal panel</div>
+          <div class="exp-card-desc">Learn the 500-year-old Nirmal technique from Venkat Rao himself — prepare your base, mix natural pigments, and paint your own small panel to take home.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹1,200 per person</div>
+              <div class="exp-duration">4 hours · Nirmal</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-category">
+    <div class="section-tag">Guided visits</div>
+    <div class="exp-category-title">Artisan village tours</div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-4">🗺️</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-tour">Village tour</div>
+          <div class="exp-card-title">Pochampally weaver's village</div>
+          <div class="exp-card-desc">A guided half-day walk through the weaving village of Pochampally — visit 4 artisan homes, see different stages of ikat production, and shop directly from the weavers.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹1,500 per person</div>
+              <div class="exp-duration">Half day · includes lunch</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-5">🏘️</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-tour">Village tour</div>
+          <div class="exp-card-title">Kondapalli toy makers tour</div>
+          <div class="exp-card-desc">Visit the families of Kondapalli who have carved wooden toys for 400 years. Watch carving, painting, and finishing — and commission a custom piece.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹1,000 per person</div>
+              <div class="exp-duration">3 hours · Kondapalli</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img exp-img-6">🎭</div>
+        <div class="exp-card-body">
+          <div class="exp-tag tag-tour">Cultural event</div>
+          <div class="exp-card-title">Cherial storytelling evening</div>
+          <div class="exp-card-desc">An evening with a Kathaka storyteller who unrolls a 40-foot Cherial scroll and narrates the Ramayana — exactly as it was told for centuries in village squares.</div>
+          <div class="exp-card-footer">
+            <div>
+              <div class="exp-price">₹800 per person</div>
+              <div class="exp-duration">2.5 hours · Warangal</div>
+            </div>
+            <a href="contact.html" class="book-btn">Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tourism-banner">
+    <div>
+      <div class="section-tag" style="color: #9FE1CB;">For travel companies</div>
+      <h2>Add Magic Shop to your <em>itinerary</em></h2>
+      <p>We partner with tour operators across Telangana and Andhra Pradesh to include our artisan experiences in tourist packages. Your guests get an unforgettable cultural stop — and the artisans get the recognition they deserve.</p>
+      <a href="contact.html" class="btn-primary">Partner with us</a>
+    </div>
+    <div>
+      <ul class="tourism-features">
+        <li>Fully guided experiences with English-speaking hosts</li>
+        <li>Flexible group sizes from 4 to 40 people</li>
+        <li>Commission structure for tour operators</li>
+        <li>Custom itineraries built around your schedule</li>
+        <li>Authentic cultural immersion — not staged tourism</li>
+        <li>Direct economic benefit to artisan families</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">Magic<span>Shop</span></a>
+      <div class="footer-tagline">Preserving India's living heritage, one craft at a time.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="artisans.html">Artisans</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">© 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.</div>
+</footer>
+
+</body>
+</html>

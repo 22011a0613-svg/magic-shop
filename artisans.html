@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artisans — Magic Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    background: var(--indigo);
+    padding: 80px 5vw 60px;
+    text-align: center;
+  }
+  .page-hero h1 { color: white; margin-bottom: 16px; }
+  .page-hero p { color: rgba(255,255,255,0.65); font-size: 18px; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  .artisans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .artisan-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.25s;
+  }
+
+  .artisan-card:hover { transform: translateY(-4px); }
+
+  .artisan-photo {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    position: relative;
+  }
+
+  .artisan-photo-1 { background: linear-gradient(135deg, var(--saffron-pale), #F4956A33); }
+  .artisan-photo-2 { background: linear-gradient(135deg, var(--indigo-light), #AFA9EC33); }
+  .artisan-photo-3 { background: linear-gradient(135deg, var(--teal-light), #5DCAA533); }
+  .artisan-photo-4 { background: linear-gradient(135deg, var(--gold-light), #EF9F2733); }
+  .artisan-photo-5 { background: linear-gradient(135deg, #FBEAF0, #ED93B133); }
+  .artisan-photo-6 { background: linear-gradient(135deg, #E6F1FB, #85B7EB33); }
+
+  .artisan-craft-tag {
+    position: absolute;
+    bottom: 14px; left: 14px;
+    background: var(--indigo);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .artisan-years {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: white;
+    color: var(--saffron);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+  }
+
+  .artisan-info { padding: 22px 24px 26px; }
+
+  .artisan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--indigo);
+    margin-bottom: 4px;
+  }
+
+  .artisan-location {
+    font-size: 12px;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .artisan-bio {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .artisan-craft-detail {
+    background: var(--saffron-pale);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--saffron);
+    font-weight: 500;
+  }
+
+  .artisan-craft-detail span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .join-banner {
+    background: var(--indigo);
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .join-banner h2 { color: white; margin-bottom: 12px; }
+  .join-banner p { color: rgba(255,255,255,0.65); font-size: 16px; max-width: 480px; margin: 0 auto 28px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .artisans-grid { grid-template-columns: 1fr; }
+    .join-banner { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Magic<span>Shop</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="artisans.html" class="active">Artisans</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-tag">The hands behind the magic</div>
+  <h1>Meet the <em>Artisans</em></h1>
+  <p>These are not just craftspeople — they are the living memory of India's most precious traditions.</p>
+</div>
+
+<section>
+  <div class="artisans-grid">
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-1">
+        🧑‍🎨
+        <div class="artisan-craft-tag">Pochampally Ikat</div>
+        <div class="artisan-years">40+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Rajamma Goud</div>
+        <div class="artisan-location">Pochampally, Nalgonda</div>
+        <div class="artisan-bio">Rajamma began weaving at age 12, sitting beside her mother on a pit loom. Today she creates double ikat sarees whose patterns take three days just to plan — each thread dyed individually before a single pass of the shuttle.</div>
+        <div class="artisan-craft-detail">
+          Double Ikat Weaving
+          <span>A technique so complex it exists in only 3 places worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-2">
+        🎨
+        <div class="artisan-craft-tag">Nirmal Paintings</div>
+        <div class="artisan-years">30+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Venkat Rao</div>
+        <div class="artisan-location">Nirmal, Adilabad</div>
+        <div class="artisan-bio">Venkat learned the Nirmal technique from his father at age 10. Each painting begins with a base of cow dung and tamarind seed paste — a preparation unchanged since the 16th century. He is one of fewer than 40 masters still practicing.</div>
+        <div class="artisan-craft-detail">
+          Nirmal Lacquerware Painting
+          <span>A GI-tagged craft with 500 years of unbroken tradition</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-3">
+        🏺
+        <div class="artisan-craft-tag">Bidriware</div>
+        <div class="artisan-years">25+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Mohammed Iqbal</div>
+        <div class="artisan-location">Bidar, Karnataka</div>
+        <div class="artisan-bio">Mohammed inlays pure silver into blackened zinc-copper alloy entirely by hand — a technique originating in the Bahmani Sultanate of the 14th century. His grandfather taught him; he now teaches his son.</div>
+        <div class="artisan-craft-detail">
+          Bidri Silver Inlay
+          <span>Named after Bidar — a 700-year-old royal craft tradition</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-4">
+        🪆
+        <div class="artisan-craft-tag">Kondapalli Toys</div>
+        <div class="artisan-years">35+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Suresh Kumar</div>
+        <div class="artisan-location">Kondapalli, Krishna</div>
+        <div class="artisan-bio">Suresh carves from the soft Tella Poniki wood that grows only in local forests. His toys — painted with natural dyes — have been exported to museums in Europe and gifted to foreign dignitaries by the Indian government.</div>
+        <div class="artisan-craft-detail">
+          Kondapalli Bommallu
+          <span>400-year-old wooden toy tradition, GI tagged in 2005</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-5">
+        🧣
+        <div class="artisan-craft-tag">Gadwal Weave</div>
+        <div class="artisan-years">20+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Laxmi Devi</div>
+        <div class="artisan-location">Gadwal, Jogulamba</div>
+        <div class="artisan-bio">Laxmi weaves the iconic Gadwal saree — cotton body, pure silk border — on a traditional frame loom. The interlocking joint between cotton and silk is done entirely by hand and is the hallmark of an authentic Gadwal piece.</div>
+        <div class="artisan-craft-detail">
+          Gadwal Handloom Sarees
+          <span>A weave so distinctive it has its own GI tag since 2010</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artisan-card">
+      <div class="artisan-photo artisan-photo-6">
+        📜
+        <div class="artisan-craft-tag">Cherial Scrolls</div>
+        <div class="artisan-years">28+ years</div>
+      </div>
+      <div class="artisan-info">
+        <div class="artisan-name">Rakesh Padmaraju</div>
+        <div class="artisan-location">Cherial, Warangal</div>
+        <div class="artisan-bio">Rakesh paints narrative scrolls used by travelling storytellers called Kathakas. A single scroll can be 40 feet long, depicting an entire epic. He uses only natural pigments — red from stone, green from plants, black from lamp soot.</div>
+        <div class="artisan-craft-detail">
+          Cherial Scroll Painting
+          <span>A living oral-visual storytelling tradition of Telangana</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="join-banner">
+    <h2>Know an <em>artisan</em> we should feature?</h2>
+    <p>We are always looking to bring more craft traditions onto Magic Shop. If you know an artisan whose story deserves to be told, get in touch.</p>
+    <a href="contact.html" class="btn-primary">Get in touch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">Magic<span>Shop</span></a>
+      <div class="footer-tagline">Preserving India's living heritage, one craft at a time.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="artisans.html">Artisans</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">© 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.</div>
+</footer>
+
+</body>
+</html>

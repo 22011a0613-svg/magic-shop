@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Magic Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    background: var(--indigo);
+    padding: 80px 5vw 60px;
+    text-align: center;
+  }
+
+  .page-hero h1 { color: white; margin-bottom: 16px; }
+  .page-hero p { color: rgba(255,255,255,0.65); font-size: 18px; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  .filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+  .filter-btn.active { background: var(--saffron); color: white; border-color: var(--saffron); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.25s;
+  }
+
+  .product-card:hover { transform: translateY(-4px); }
+
+  .product-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+  }
+
+  .product-img-1 { background: var(--saffron-pale); }
+  .product-img-2 { background: var(--indigo-light); }
+  .product-img-3 { background: var(--teal-light); }
+  .product-img-4 { background: var(--gold-light); }
+  .product-img-5 { background: #FBEAF0; }
+  .product-img-6 { background: #E6F1FB; }
+
+  .product-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--indigo);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .product-info { padding: 18px 20px 22px; }
+
+  .product-craft {
+    font-size: 11px;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--indigo);
+    margin-bottom: 8px;
+  }
+
+  .product-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-price {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .product-artisan {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .enquire-btn {
+    background: var(--saffron);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .enquire-btn:hover { background: var(--indigo); }
+
+  .coming-soon-banner {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Magic<span>Shop</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="artisans.html">Artisans</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-tag">Handmade with love</div>
+  <h1>The <em>Shop</em></h1>
+  <p>Every piece here carries centuries of tradition and the hands of a real artisan. Enquire about anything you love.</p>
+</div>
+
+<section>
+  <div class="coming-soon-banner">
+    🌟 We're launching soon! Enquire about any product and we'll get back to you personally.
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All crafts</button>
+    <button class="filter-btn" onclick="filterProducts('handloom', this)">Handloom</button>
+    <button class="filter-btn" onclick="filterProducts('painting', this)">Paintings</button>
+    <button class="filter-btn" onclick="filterProducts('metalwork', this)">Metalwork</button>
+    <button class="filter-btn" onclick="filterProducts('toys', this)">Toys & decor</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+
+    <div class="product-card" data-category="handloom">
+      <div class="product-img product-img-1">
+        🪡
+        <div class="product-badge">Handloom</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Pochampally Ikat</div>
+        <div class="product-name">Double Ikat Silk Saree</div>
+        <div class="product-desc">A masterpiece of resist-dyeing technique. Each thread is dyed before weaving — creating patterns that align perfectly only through years of skill.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹8,500</div>
+            <div class="product-artisan">by Rajamma Goud</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="painting">
+      <div class="product-img product-img-2">
+        🖼️
+        <div class="product-badge">Heritage art</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Nirmal Paintings</div>
+        <div class="product-name">Dashavatara Panel</div>
+        <div class="product-desc">Painted on a base of cow dung and tamarind seed paste, this 16th-century technique produces colours that never fade.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹12,000</div>
+            <div class="product-artisan">by Venkat Rao</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="metalwork">
+      <div class="product-img product-img-3">
+        🏺
+        <div class="product-badge">Rare craft</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Bidriware</div>
+        <div class="product-name">Silver Inlay Vase</div>
+        <div class="product-desc">Pure silver inlaid into blackened zinc-copper alloy by hand. A craft from the Bahmani Sultanate that fewer than 50 artisans still practice.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹6,200</div>
+            <div class="product-artisan">by Mohammed Iqbal</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="toys">
+      <div class="product-img product-img-4">
+        🪆
+        <div class="product-badge">Eco friendly</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Kondapalli Toys</div>
+        <div class="product-name">Wooden Nativity Set</div>
+        <div class="product-desc">Carved from softwood and painted with natural dyes, these toys have delighted children and collectors for over 400 years.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹3,800</div>
+            <div class="product-artisan">by Suresh Kumar</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="handloom">
+      <div class="product-img product-img-5">
+        🧣
+        <div class="product-badge">Handloom</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Gadwal Weave</div>
+        <div class="product-name">Silk Cotton Saree</div>
+        <div class="product-desc">A unique blend of silk and cotton — the body in cotton for comfort, the border in pure silk for elegance. A Telangana classic.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹5,500</div>
+            <div class="product-artisan">by Laxmi Devi</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="painting">
+      <div class="product-img product-img-6">
+        🎨
+        <div class="product-badge">Heritage art</div>
+      </div>
+      <div class="product-info">
+        <div class="product-craft">Cherial Scroll</div>
+        <div class="product-name">Ramayana Story Scroll</div>
+        <div class="product-desc">A 40-foot narrative painting used by storytellers for centuries. Each scroll tells an entire epic through vivid hand-painted scenes.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">₹18,000</div>
+            <div class="product-artisan">by Rakesh Padmaraju</div>
+          </div>
+          <a href="contact.html" class="enquire-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">Magic<span>Shop</span></a>
+      <div class="footer-tagline">Preserving India's living heritage, one craft at a time.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="artisans.html">Artisans</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">© 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.</div>
+</footer>
+
+<script>
+  function filterProducts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

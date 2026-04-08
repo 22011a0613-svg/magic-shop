@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Magic Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    background: var(--gold);
+    padding: 80px 5vw 60px;
+    text-align: center;
+  }
+  .page-hero h1 { color: white; margin-bottom: 16px; }
+  .page-hero .section-tag { color: rgba(255,255,255,0.7); }
+  .page-hero p { color: rgba(255,255,255,0.85); font-size: 18px; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+  .info-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .info-icon {
+    font-size: 24px;
+    width: 48px; height: 48px;
+    background: var(--saffron-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--indigo);
+    margin-bottom: 4px;
+  }
+
+  .info-detail {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .info-detail a { color: var(--saffron); text-decoration: none; }
+  .info-detail a:hover { text-decoration: underline; }
+
+  .contact-form-wrap {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--indigo);
+    margin-bottom: 8px;
+  }
+
+  .form-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--saffron);
+    background: white;
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--saffron);
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { background: var(--indigo); }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-success-icon { font-size: 56px; margin-bottom: 16px; }
+
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--indigo);
+    margin-bottom: 8px;
+  }
+
+  .form-success p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+
+  .enquiry-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 60px;
+  }
+
+  .enquiry-type {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .enquiry-type:hover { border-color: var(--saffron); transform: translateY(-2px); }
+
+  .enquiry-type-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+
+  .enquiry-type h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .enquiry-type p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .enquiry-types { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Magic<span>Shop</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="artisans.html">Artisans</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="section-tag">Get in touch</div>
+  <h1>Let's <em>talk</em></h1>
+  <p>Whether you want to enquire about a product, book an experience, or partner with us — we'd love to hear from you.</p>
+</div>
+
+<section>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-title">Email us</div>
+          <div class="info-detail"><a href="mailto:hello@magicshop.in">hello@magicshop.in</a><br>We reply within 24 hours.</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-title">Based in</div>
+          <div class="info-detail">Hyderabad, Telangana<br>Operating across Telangana & Andhra Pradesh</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-title">Response time</div>
+          <div class="info-detail">Mon–Sat, 9am–6pm IST<br>We personally respond to every message.</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🤝</div>
+        <div>
+          <div class="info-title">For artisans</div>
+          <div class="info-detail">Are you an artisan who wants to be featured? We'd love to hear your story. Reach out and tell us about your craft.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div id="contactForm">
+        <div class="form-title">Send us a message</div>
+        <div class="form-sub">Fill in the form and we'll get back to you personally — no bots, no templates.</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" id="fname" placeholder="e.g. Priya Sharma">
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" id="femail" placeholder="your@email.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>What's this about?</label>
+          <select id="ftype">
+            <option value="">Select a topic</option>
+            <option>Product enquiry</option>
+            <option>Book an experience</option>
+            <option>Artisan partnership</option>
+            <option>Tourism / travel company</option>
+            <option>Media / press</option>
+            <option>Join the team</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your message</label>
+          <textarea id="fmessage" placeholder="Tell us what's on your mind — the more detail the better!"></textarea>
+        </div>
+
+        <button class="form-submit" onclick="handleSubmit()">Send message</button>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✨</div>
+        <h3>Message received!</h3>
+        <p>Thank you for reaching out. We'll get back to you personally within 24 hours. In the meantime, feel free to explore our artisans and shop.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="enquiry-types">
+    <div class="enquiry-type">
+      <span class="enquiry-type-icon">🛍️</span>
+      <h3>Product enquiries</h3>
+      <p>Interested in a specific piece? Ask us about availability, customization, or bulk orders for gifting.</p>
+    </div>
+    <div class="enquiry-type">
+      <span class="enquiry-type-icon">🎭</span>
+      <h3>Book an experience</h3>
+      <p>Want to visit an artisan village or attend a live demo? We'll plan the whole thing around your schedule.</p>
+    </div>
+    <div class="enquiry-type">
+      <span class="enquiry-type-icon">🌍</span>
+      <h3>Tourism partnerships</h3>
+      <p>Travel company or tour operator? Let's talk about adding Magic Shop experiences to your itineraries.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">Magic<span>Shop</span></a>
+      <div class="footer-tagline">Preserving India's living heritage, one craft at a time.</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="artisans.html">Artisans</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">© 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.</div>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('fname').value;
+    const email = document.getElementById('femail').value;
+    const type = document.getElementById('ftype').value;
+    const message = document.getElementById('fmessage').value;
+
+    if (!name || !email || !type || !message) {
+      alert('Please fill in all fields before sending!');
+      return;
+    }
+
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

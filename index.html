@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,89 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Magic Shop — Where India's Crafts Live On</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --saffron: #E8620A;
-    --saffron-light: #F4956A;
-    --saffron-pale: #FDF0E8;
-    --indigo: #2C2A6E;
-    --indigo-mid: #4A469F;
-    --indigo-light: #EEEDFE;
-    --teal: #0F6E56;
-    --teal-light: #E1F5EE;
-    --gold: #C9921A;
-    --gold-light: #FAEEDA;
-    --cream: #FBF7F0;
-    --charcoal: #1C1A17;
-    --text-muted: #6B6560;
-    --border: rgba(28,26,23,0.1);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    padding: 0 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--saffron);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
-
-  .nav-logo span { color: var(--indigo); font-style: italic; }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--charcoal);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .nav-links a:hover { opacity: 1; }
-
-  .nav-cta {
-    background: var(--saffron);
-    color: white !important;
-    opacity: 1 !important;
-    padding: 8px 20px;
-    border-radius: 100px;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-  }
-
-  .nav-cta:hover { background: var(--indigo) !important; }
-
-  /* HERO */
   .hero {
     min-height: 92vh;
     padding: 80px 5vw 60px;
@@ -134,19 +52,6 @@
     background: var(--gold);
   }
 
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 5vw, 68px);
-    line-height: 1.1;
-    color: var(--indigo);
-    margin-bottom: 24px;
-  }
-
-  h1 em {
-    color: var(--saffron);
-    font-style: italic;
-  }
-
   .hero-sub {
     font-size: 18px;
     line-height: 1.7;
@@ -155,43 +60,7 @@
     margin-bottom: 40px;
   }
 
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--saffron);
-    color: white;
-    padding: 14px 32px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--indigo); transform: translateY(-1px); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--indigo);
-    padding: 14px 32px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1.5px solid var(--indigo);
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn-outline:hover { background: var(--indigo); color: white; }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
   .hero-stats {
     display: flex;
@@ -216,37 +85,22 @@
     letter-spacing: 0.04em;
   }
 
-  /* Hero visual */
   .hero-visual {
     position: relative;
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
     gap: 12px;
   }
 
-  .craft-card {
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .craft-card:first-child {
-    grid-column: 1 / -1;
-    height: 240px;
-  }
-
+  .craft-card { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; }
+  .craft-card:first-child { grid-column: 1 / -1; height: 240px; }
   .craft-card:not(:first-child) { height: 160px; }
 
   .craft-card-inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
-    position: relative;
+    width: 100%; height: 100%;
+    display: flex; align-items: flex-end;
+    padding: 16px; position: relative;
   }
 
   .card-1 { background: linear-gradient(135deg, #C9921A 0%, #E8620A 100%); }
@@ -254,491 +108,128 @@
   .card-3 { background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 100%); }
 
   .craft-pattern {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     opacity: 0.12;
     background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%);
     background-size: 20px 20px;
   }
 
-  .craft-label {
-    position: relative;
-    z-index: 1;
-    color: white;
-  }
+  .craft-label { position: relative; z-index: 1; color: white; }
+  .craft-label-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; display: block; }
+  .craft-label-sub { font-size: 12px; opacity: 0.8; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
 
-  .craft-label-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    display: block;
-  }
-
-  .craft-label-sub {
-    font-size: 12px;
-    opacity: 0.8;
-    margin-top: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* SECTION COMMON */
-  section { padding: 80px 5vw; }
-
-  .section-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--saffron);
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 4vw, 48px);
-    line-height: 1.15;
-    color: var(--indigo);
-    margin-bottom: 16px;
-  }
-
-  h2 em { color: var(--saffron); font-style: italic; }
-
-  .section-sub {
-    font-size: 17px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 540px;
-    margin-bottom: 48px;
-  }
-
-  /* MISSION */
-  .mission {
-    background: var(--indigo);
-    color: white;
-  }
-
+  .mission { background: var(--indigo); color: white; }
   .mission h2 { color: white; }
-  .mission h2 em { color: var(--saffron-light); }
   .mission .section-tag { color: var(--saffron-light); }
   .mission .section-sub { color: rgba(255,255,255,0.65); }
 
-  .mission-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
+  .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
 
   .mission-card {
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 28px;
+    border-radius: 16px; padding: 28px;
   }
 
   .mission-icon {
-    width: 44px; height: 44px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    font-size: 20px;
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 20px;
   }
 
   .icon-saffron { background: rgba(232,98,10,0.25); }
   .icon-gold { background: rgba(201,146,26,0.25); }
   .icon-teal { background: rgba(15,110,86,0.25); }
+  .mission-card h3 { color: white; margin-bottom: 10px; }
+  .mission-card p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); }
 
-  .mission-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: white;
-    margin-bottom: 10px;
-  }
+  .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-  .mission-card p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.6);
-  }
-
-  /* ARTISANS */
-  .artisans-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .artisan-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
+  .preview-card {
+    background: white; border-radius: 20px;
     border: 1px solid var(--border);
-    transition: transform 0.25s;
+    overflow: hidden; transition: transform 0.25s;
+    text-decoration: none; color: inherit;
+    display: block;
   }
 
-  .artisan-card:hover { transform: translateY(-4px); }
+  .preview-card:hover { transform: translateY(-4px); }
 
-  .artisan-photo {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-    position: relative;
-  }
-
-  .artisan-photo-1 { background: linear-gradient(135deg, #FAEEDA, #F4956A); }
-  .artisan-photo-2 { background: linear-gradient(135deg, #EEEDFE, #AFA9EC); }
-  .artisan-photo-3 { background: linear-gradient(135deg, #E1F5EE, #5DCAA5); }
-
-  .artisan-craft-tag {
-    position: absolute;
-    bottom: 12px; left: 12px;
-    background: var(--indigo);
-    color: white;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .artisan-info { padding: 20px 22px 24px; }
-
-  .artisan-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: var(--indigo);
-    margin-bottom: 4px;
-  }
-
-  .artisan-location {
-    font-size: 12px;
-    color: var(--saffron);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .artisan-bio {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* PRODUCTS */
-  .products { background: var(--saffron-pale); }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .product-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .product-card:hover { transform: translateY(-3px); }
-
-  .product-img {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .preview-img {
+    height: 180px; display: flex;
+    align-items: center; justify-content: center;
     font-size: 52px;
-    position: relative;
   }
 
-  .product-img-1 { background: #FDF0E8; }
-  .product-img-2 { background: #EEEDFE; }
-  .product-img-3 { background: #E1F5EE; }
-  .product-img-4 { background: #FAEEDA; }
+  .preview-img-1 { background: var(--saffron-pale); }
+  .preview-img-2 { background: var(--indigo-light); }
+  .preview-img-3 { background: var(--teal-light); }
 
-  .product-badge {
-    position: absolute;
-    top: 10px; right: 10px;
-    background: var(--saffron);
-    color: white;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+  .preview-info { padding: 20px 22px 24px; }
+  .preview-info h3 { margin-bottom: 8px; }
+  .preview-info p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+  .preview-link { font-size: 13px; color: var(--saffron); font-weight: 500; }
 
-  .product-info { padding: 14px 16px 18px; }
-
-  .product-craft {
-    font-size: 11px;
-    color: var(--saffron);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--indigo);
-    margin-bottom: 8px;
-  }
-
-  .product-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .product-price {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--charcoal);
-  }
-
-  .product-artisan {
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-
-  /* EXPERIENCE */
-  .experience-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-
-  .experience-cards {
-    display: grid;
-    gap: 16px;
-  }
-
-  .exp-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px 24px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    transition: border-color 0.2s;
-  }
-
-  .exp-card:hover { border-color: var(--saffron); }
-
-  .exp-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--saffron-pale);
-    border-radius: 12px;
-  }
-
-  .exp-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    color: var(--indigo);
-    margin-bottom: 4px;
-  }
-
-  .exp-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .experience-text {}
-
-  /* WAITLIST */
-  .waitlist {
-    background: var(--indigo);
-    text-align: center;
-    padding: 100px 5vw;
-  }
-
+  .waitlist { background: var(--indigo); text-align: center; padding: 100px 5vw; }
   .waitlist h2 { color: white; }
-  .waitlist h2 em { color: var(--saffron-light); }
   .waitlist .section-tag { color: var(--saffron-light); }
+  .waitlist-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; margin: 0 auto 40px; }
 
-  .waitlist-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto 40px;
-  }
-
-  .waitlist-form {
-    display: flex;
-    gap: 12px;
-    max-width: 480px;
-    margin: 0 auto;
-    justify-content: center;
-  }
+  .waitlist-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; justify-content: center; }
 
   .waitlist-input {
-    flex: 1;
-    padding: 14px 20px;
-    border-radius: 100px;
+    flex: 1; padding: 14px 20px; border-radius: 100px;
     border: 1.5px solid rgba(255,255,255,0.2);
     background: rgba(255,255,255,0.08);
-    color: white;
-    font-size: 14px;
+    color: white; font-size: 14px;
     font-family: 'DM Sans', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
+    outline: none; transition: border-color 0.2s;
   }
 
   .waitlist-input::placeholder { color: rgba(255,255,255,0.4); }
   .waitlist-input:focus { border-color: var(--saffron-light); }
 
   .waitlist-btn {
-    background: var(--saffron);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 500;
+    background: var(--saffron); color: white; border: none;
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 14px; font-weight: 500;
     font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
+    cursor: pointer; transition: background 0.2s; white-space: nowrap;
   }
 
   .waitlist-btn:hover { background: var(--gold); }
+  .waitlist-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 16px; }
+  .success-msg { display: none; color: #5DCAA5; font-size: 15px; margin-top: 16px; font-family: 'Playfair Display', serif; font-style: italic; }
 
-  .waitlist-note {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 16px;
-  }
-
-  .success-msg {
-    display: none;
-    color: #5DCAA5;
-    font-size: 15px;
-    margin-top: 16px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--charcoal);
-    padding: 48px 5vw 32px;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-  }
-
-  .footer-logo span { color: var(--saffron-light); font-style: italic; }
-
-  .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 4px;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: white; }
-
-  .footer-bottom {
-    font-size: 12px;
-    text-align: center;
-  }
-
-  /* ANIM */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .fadeup { animation: fadeUp 0.7s ease both; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding: 48px 5vw 60px; }
     .hero::before { display: none; }
-    .mission-grid, .artisans-grid { grid-template-columns: 1fr; }
-    .products-grid { grid-template-columns: repeat(2, 1fr); }
-    .experience-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+    .mission-grid, .preview-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Magic<span>Shop</span></a>
+  <a href="index.html" class="nav-logo">Magic<span>Shop</span></a>
   <ul class="nav-links">
-    <li><a href="#mission">Our Mission</a></li>
-    <li><a href="#artisans">Artisans</a></li>
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#experience">Experiences</a></li>
-    <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="artisans.html">Artisans</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <div class="hero-badge fadeup">India's Living Heritage</div>
     <h1 class="fadeup delay-1">Where <em>ancient craft</em> finds its forever home</h1>
     <p class="hero-sub fadeup delay-2">MagicShop connects India's master artisans with the world — preserving centuries of handloom and handicraft traditions, one beautiful object at a time.</p>
     <div class="hero-actions fadeup delay-3">
-      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
-      <a href="#artisans" class="btn-outline">Meet the Artisans</a>
+      <a href="shop.html" class="btn-primary">Explore the Shop</a>
+      <a href="artisans.html" class="btn-outline">Meet the Artisans</a>
     </div>
     <div class="hero-stats fadeup delay-3">
       <div>
@@ -755,7 +246,6 @@
       </div>
     </div>
   </div>
-
   <div class="hero-visual fadeup delay-2">
     <div class="craft-card">
       <div class="craft-card-inner card-1">
@@ -787,11 +277,10 @@
   </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission" id="mission">
+<section class="mission">
   <div class="section-tag">Our mission</div>
   <h2>Crafts that <em>survive</em> should also <em>thrive</em></h2>
-  <p class="section-sub">Every handwoven saree is a sentence in a story that's been told for centuries. We exist to make sure that story never ends.</p>
+  <p class="section-sub">Every handwoven saree is a sentence in a story told for centuries. We exist to make sure that story never ends.</p>
   <div class="mission-grid">
     <div class="mission-card">
       <div class="mission-icon icon-saffron">🧵</div>
@@ -806,162 +295,44 @@
     <div class="mission-card">
       <div class="mission-icon icon-teal">🌍</div>
       <h3>Connect worlds</h3>
-      <p>From a weaver's home in Pochampally to a living room in London — we build the bridge that makes this exchange possible and meaningful.</p>
+      <p>From a weaver's home in Pochampally to a living room in London — we build the bridge that makes this exchange possible.</p>
     </div>
   </div>
 </section>
 
-<!-- ARTISANS -->
-<section id="artisans">
-  <div class="section-tag">The hands behind the magic</div>
-  <h2>Meet the <em>artisans</em></h2>
-  <p class="section-sub">These aren't just suppliers. They are guardians of India's living heritage — and the heart of everything we do.</p>
-  <div class="artisans-grid">
-    <div class="artisan-card">
-      <div class="artisan-photo artisan-photo-1">
-        🧑‍🎨
-        <div class="artisan-craft-tag">Pochampally Ikat</div>
+<section>
+  <div class="section-tag">Explore Magic Shop</div>
+  <h2>Everything we <em>offer</em></h2>
+  <p class="section-sub">From handcrafted products to immersive cultural experiences — there's something here for everyone who loves India's heritage.</p>
+  <div class="preview-grid">
+    <a href="shop.html" class="preview-card">
+      <div class="preview-img preview-img-1">🪡</div>
+      <div class="preview-info">
+        <h3>The Shop</h3>
+        <p>Handlooms, handicrafts, and custom pieces — each one made by a named artisan with a story to tell.</p>
+        <span class="preview-link">Browse products →</span>
       </div>
-      <div class="artisan-info">
-        <div class="artisan-name">Rajamma Goud</div>
-        <div class="artisan-location">Pochampally, Telangana</div>
-        <div class="artisan-bio">Weaving ikat since the age of 12, Rajamma creates sarees whose patterns take three days just to plan. Her family has woven for four generations.</div>
+    </a>
+    <a href="artisans.html" class="preview-card">
+      <div class="preview-img preview-img-2">🧑‍🎨</div>
+      <div class="preview-info">
+        <h3>The Artisans</h3>
+        <p>Meet the hands and hearts behind every piece — their lives, their techniques, their legacy.</p>
+        <span class="preview-link">Meet them →</span>
       </div>
-    </div>
-    <div class="artisan-card">
-      <div class="artisan-photo artisan-photo-2">
-        🎨
-        <div class="artisan-craft-tag">Nirmal Paintings</div>
+    </a>
+    <a href="experiences.html" class="preview-card">
+      <div class="preview-img preview-img-3">🎭</div>
+      <div class="preview-info">
+        <h3>Experiences</h3>
+        <p>Live demos, studio tours, cultural festivals — Magic Shop is more than a store, it's a destination.</p>
+        <span class="preview-link">Explore experiences →</span>
       </div>
-      <div class="artisan-info">
-        <div class="artisan-name">Venkat Rao</div>
-        <div class="artisan-location">Nirmal, Telangana</div>
-        <div class="artisan-bio">Each of Venkat's paintings begins with a cow-dung base coat — a 500-year-old tradition. He is one of fewer than 40 master painters still practicing.</div>
-      </div>
-    </div>
-    <div class="artisan-card">
-      <div class="artisan-photo artisan-photo-3">
-        🏺
-        <div class="artisan-craft-tag">Bidriware</div>
-      </div>
-      <div class="artisan-info">
-        <div class="artisan-name">Mohammed Iqbal</div>
-        <div class="artisan-location">Bidar, Karnataka</div>
-        <div class="artisan-bio">Mohammed inlays silver into blackened zinc-copper alloy by hand — a technique from the Bahmani Sultanate era that he learned from his grandfather.</div>
-      </div>
-    </div>
+    </a>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="shop">
-  <div class="section-tag">Coming soon to the shop</div>
-  <h2>Crafted with <em>centuries</em> of memory</h2>
-  <p class="section-sub">A preview of what you'll find. Join the waitlist to be first when we launch.</p>
-  <div class="products-grid">
-    <div class="product-card">
-      <div class="product-img product-img-1">
-        🪡
-        <div class="product-badge">Handloom</div>
-      </div>
-      <div class="product-info">
-        <div class="product-craft">Pochampally Ikat</div>
-        <div class="product-name">Double Ikat Silk Saree</div>
-        <div class="product-footer">
-          <span class="product-price">₹8,500</span>
-          <span class="product-artisan">by Rajamma</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-img product-img-2">
-        🖼️
-        <div class="product-badge">Heritage</div>
-      </div>
-      <div class="product-info">
-        <div class="product-craft">Nirmal Art</div>
-        <div class="product-name">Dashavatara Panel</div>
-        <div class="product-footer">
-          <span class="product-price">₹12,000</span>
-          <span class="product-artisan">by Venkat Rao</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-img product-img-3">
-        🏺
-        <div class="product-badge">Rare craft</div>
-      </div>
-      <div class="product-info">
-        <div class="product-craft">Bidriware</div>
-        <div class="product-name">Silver Inlay Vase</div>
-        <div class="product-footer">
-          <span class="product-price">₹6,200</span>
-          <span class="product-artisan">by Mohammed</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-img product-img-4">
-        🪆
-        <div class="product-badge">Eco friendly</div>
-      </div>
-      <div class="product-info">
-        <div class="product-craft">Kondapalli Toys</div>
-        <div class="product-name">Wooden Nativity Set</div>
-        <div class="product-footer">
-          <span class="product-price">₹3,800</span>
-          <span class="product-artisan">by Suresh</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="experience-grid">
-    <div class="experience-text">
-      <div class="section-tag">Not just a shop</div>
-      <h2>A cultural <em>experience</em> you carry home</h2>
-      <p class="section-sub">Magic Shop is where commerce meets culture — a space to witness, learn, and feel the pulse of living traditions.</p>
-      <a href="#waitlist" class="btn-primary">Get early access</a>
-    </div>
-    <div class="experience-cards">
-      <div class="exp-card">
-        <div class="exp-icon">🎭</div>
-        <div>
-          <div class="exp-title">Live craft demonstrations</div>
-          <div class="exp-desc">Watch artisans work in real time — from warping a loom to inlaying silver — and ask them questions directly.</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-icon">🍛</div>
-        <div>
-          <div class="exp-title">Regional food & cultural events</div>
-          <div class="exp-desc">Festivals, folk performances, and regional cuisine that bring the full cultural context of each craft to life.</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-icon">🗺️</div>
-        <div>
-          <div class="exp-title">Artisan studio tours</div>
-          <div class="exp-desc">Ticketed visits to working artisan villages in Telangana — tourism that directly funds the communities you visit.</div>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-icon">📚</div>
-        <div>
-          <div class="exp-title">Craft history archive</div>
-          <div class="exp-desc">Every product page doubles as an educational resource — technique, history, GI tag context, and artisan story all in one place.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WAITLIST -->
-<section class="waitlist" id="waitlist">
+<section class="waitlist">
   <div class="section-tag">Be part of the revival</div>
   <h2>Something <em>magical</em> is coming</h2>
   <p class="waitlist-sub">Join our waitlist for early access, launch discounts, and stories from the artisans before we go live.</p>
@@ -973,24 +344,21 @@
   <div class="success-msg" id="successMsg">✨ You're on the list! We'll be in touch soon.</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="#" class="footer-logo">Magic<span>Shop</span></a>
+      <a href="index.html" class="footer-logo">Magic<span>Shop</span></a>
       <div class="footer-tagline">Preserving India's living heritage, one craft at a time.</div>
     </div>
     <ul class="footer-links">
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#artisans">Artisans</a></li>
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#experience">Experiences</a></li>
-      <li><a href="#waitlist">Waitlist</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="artisans.html">Artisans</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
-  <div class="footer-bottom">
-    © 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.
-  </div>
+  <div class="footer-bottom">© 2025 MagicShop. Starting in Hyderabad, Telangana. Made with love for India's artisans.</div>
 </footer>
 
 <script>
@@ -1010,22 +378,6 @@
 
   document.getElementById('emailInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') handleWaitlist();
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.mission-card, .artisan-card, .product-card, .exp-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
   });
 </script>
 
